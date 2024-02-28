@@ -21,7 +21,7 @@ const Home = () => {
     axios
     .get(`${import.meta.env.VITE_APP_BASE_URL}/books`, {
       headers: {
-        Authorization: `Bearer ${user.token}` // Pass token in the Authorization header
+        Authorization: `Bearer ${user?.token}` // Pass token in the Authorization header
       }
     })
       .then((response) => {

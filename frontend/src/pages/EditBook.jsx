@@ -22,7 +22,7 @@ const EditBook = () => {
     setLoading(true);
     axios.get(`${import.meta.env.VITE_APP_BASE_URL}/books/${id}`,{
       headers: {
-        Authorization: `Bearer ${user.token}` 
+        Authorization: `Bearer ${user?.token}` 
       }
     })
     .then((response) => {
@@ -47,7 +47,7 @@ const EditBook = () => {
     axios
       .put(`${import.meta.env.VITE_APP_BASE_URL}/books/${id}`, data, {
         headers: {
-          Authorization: `Bearer ${user.token}` // Pass token in the Authorization header
+          Authorization: `Bearer ${user?.token}` // Pass token in the Authorization header
         }
       })
       .then(() => {

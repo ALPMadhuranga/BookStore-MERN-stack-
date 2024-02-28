@@ -20,7 +20,7 @@ const DeleteBook = () => {
     axios
       .delete(`${import.meta.env.VITE_APP_BASE_URL}/books/${id}`, {
         headers: {
-          Authorization: `Bearer ${user.token}` // Pass token in the Authorization header
+          Authorization: `Bearer ${user?.token}` // Pass token in the Authorization header
         }
       })
       .then(() => {
