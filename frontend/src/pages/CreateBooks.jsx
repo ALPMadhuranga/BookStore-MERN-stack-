@@ -4,6 +4,7 @@ import Spinner from '../components/Spinner';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useSnackbar } from 'notistack';
+import { useSelector } from 'react-redux';
 
 const CreateBooks = () => {
   const [title, setTitle] = useState('');
@@ -13,6 +14,9 @@ const CreateBooks = () => {
   const navigate = useNavigate();
   const { enqueueSnackbar } = useSnackbar();
 
+  
+  const { user } = useSelector((state) => state.auth)
+
   const handleSaveBook = () => {
     const data = {
       title,
@@ -21,7 +25,11 @@ const CreateBooks = () => {
     };
     setLoading(true);
     axios
-      .post('http://localhost:5555/books', data)
+      .post('http://localhost:5555/books', data, {
+        headers: {
+          Authorization: `Bearer ${user.token}` // Pass token in the Authorization header
+        }
+      })
       .then(() => {
         setLoading(false);
         enqueueSnackbar('Book Created successfully', { variant: 'success' });

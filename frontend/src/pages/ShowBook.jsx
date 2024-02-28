@@ -3,16 +3,24 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import BackButton from '../components/BackButton';
 import Spinner from '../components/Spinner';
+import { useSelector } from 'react-redux';
 
 const ShowBook = () => {
   const [book, setBook] = useState({});
   const [loading, setLoading] = useState(false);
   const { id } = useParams();
 
+  
+  const { user } = useSelector((state) => state.auth)
+
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`http://localhost:5555/books/${id}`)
+      .get(`http://localhost:5555/books/${id}`, {
+        headers: {
+          Authorization: `Bearer ${user.token}` // Pass token in the Authorization header
+        }
+      })
       .then((response) => {
         setBook(response.data);
         setLoading(false);

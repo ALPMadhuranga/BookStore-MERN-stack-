@@ -7,16 +7,23 @@ import { BsInfoCircle } from 'react-icons/bs';
 import { MdOutlineAddBox, MdOutlineDelete } from 'react-icons/md';
 import BooksTable from '../components/home/BooksTable';
 import BooksCard from '../components/home/BooksCard';
+import { useSelector } from 'react-redux';
 
 const Home = () => {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(false);
   const [showType, setShowType] = useState('table');
 
+  const { user } = useSelector((state) => state.auth)
+
   useEffect(() => {
     setLoading(true);
     axios
-      .get('http://localhost:5555/books')
+    .get('http://localhost:5555/books', {
+      headers: {
+        Authorization: `Bearer ${user.token}` // Pass token in the Authorization header
+      }
+    })
       .then((response) => {
         setBooks(response.data.data);
         setLoading(false);
@@ -28,6 +35,7 @@ const Home = () => {
   }, []);
 
   return (
+
     <div className='p-4'>
       <div className='flex justify-center items-center gap-x-4'>
         <button

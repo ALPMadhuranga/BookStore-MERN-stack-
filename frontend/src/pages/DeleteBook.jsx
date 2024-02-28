@@ -4,6 +4,7 @@ import Spinner from '../components/Spinner';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useSnackbar } from 'notistack';
+import { useSelector } from 'react-redux';
 
 const DeleteBook = () => {
   const [loading, setLoading] = useState(false);
@@ -11,10 +12,17 @@ const DeleteBook = () => {
   const { id } = useParams();
   const { enqueueSnackbar } = useSnackbar();
 
+  
+  const { user } = useSelector((state) => state.auth)
+
   const handleDeleteBook = () => {
     setLoading(true);
     axios
-      .delete(`http://localhost:5555/books/${id}`)
+      .delete(`http://localhost:5555/books/${id}`, {
+        headers: {
+          Authorization: `Bearer ${user.token}` // Pass token in the Authorization header
+        }
+      })
       .then(() => {
         setLoading(false);
         enqueueSnackbar('Book Deleted successfully', { variant: 'success' });

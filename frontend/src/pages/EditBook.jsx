@@ -4,6 +4,7 @@ import Spinner from '../components/Spinner';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useSnackbar } from 'notistack';
+import { useSelector } from 'react-redux';
 
 const EditBook = () => {
   const [title, setTitle] = useState('');
@@ -14,9 +15,16 @@ const EditBook = () => {
   const {id} = useParams();
   const { enqueueSnackbar } = useSnackbar();
 
+  
+  const { user } = useSelector((state) => state.auth)
+
   useEffect(() => {
     setLoading(true);
-    axios.get(`http://localhost:5555/books/${id}`)
+    axios.get(`http://localhost:5555/books/${id}`,{
+      headers: {
+        Authorization: `Bearer ${user.token}` 
+      }
+    })
     .then((response) => {
         setAuthor(response.data.author);
         setPublishYear(response.data.publishYear)
@@ -37,7 +45,11 @@ const EditBook = () => {
     };
     setLoading(true);
     axios
-      .put(`http://localhost:5555/books/${id}`, data)
+      .put(`http://localhost:5555/books/${id}`, data, {
+        headers: {
+          Authorization: `Bearer ${user.token}` // Pass token in the Authorization header
+        }
+      })
       .then(() => {
         setLoading(false);
         enqueueSnackbar('Book Edited successfully', { variant: 'success' });
