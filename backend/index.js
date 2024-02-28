@@ -16,16 +16,11 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}))
 
 // Middleware for handling CORS POLICY
-// Option 1: Allow All Origins with Default of cors(*)
-// app.use(cors());
-// Option 2: Allow Custom Origins
-app.use(
-  cors({
-    origin: 'https://library-management-henna.vercel.app',
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type'],
-  })
-);
+const corsOptions = {
+  origin: "https://library-management-henna.vercel.app",
+  credentials: true,
+};
+app.use(cors(corsOptions));
 
 app.get('/', (request, response) => {
   console.log(request);
