@@ -19,7 +19,7 @@ const Home = () => {
   useEffect(() => {
     setLoading(true);
     axios
-    .get('http://localhost:5555/books', {
+    .get(`${import.meta.env.VITE_APP_BASE_URL}/books`, {
       headers: {
         Authorization: `Bearer ${user.token}` // Pass token in the Authorization header
       }

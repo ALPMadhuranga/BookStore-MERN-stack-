@@ -18,7 +18,7 @@ const DeleteBook = () => {
   const handleDeleteBook = () => {
     setLoading(true);
     axios
-      .delete(`http://localhost:5555/books/${id}`, {
+      .delete(`${import.meta.env.VITE_APP_BASE_URL}/books/${id}`, {
         headers: {
           Authorization: `Bearer ${user.token}` // Pass token in the Authorization header
         }
