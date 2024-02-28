@@ -21,7 +21,7 @@ app.use(express.urlencoded({extended:true}))
 // Option 2: Allow Custom Origins
 app.use(
   cors({
-    origin: 'http://localhost:5173',
+    origin: 'https://library-management-henna.vercel.app',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type'],
   })
