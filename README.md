@@ -1,7 +1,7 @@
 # MERN Stack based Library Management System
 A simple Library management system within CRUD functionalities created using MERN stack and Sign up and Sign in pages created within user authentication and authorization using JWT and Redux
 
-# Technologies
+## Technologies
   - MongoDB
   - Express Js
   - React Js
