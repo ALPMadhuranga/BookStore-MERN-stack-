@@ -81,7 +81,7 @@ const SignIn = () => {
               />
             </div>
             <div>
-              <label htmlFor="password" className="sr-only mt-2">
+              <label htmlFor="password" className="sr-only my-2">
                 Password
               </label>
               <input
