@@ -76,7 +76,7 @@ const SignIn = () => {
                 required
                 value={email}
                 onChange={onChange}
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-teal-500 focus:border-teal-500 focus:z-10 sm:text-sm my-2"
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-teal-500 focus:border-teal-500 focus:z-10 sm:text-sm"
                 placeholder="Email address"
               />
             </div>
@@ -131,7 +131,7 @@ const SignIn = () => {
             </button>
           </div>
           <p>
-          <Link to="/register" className="ms-2">Not registerd yet Register</Link>
+            Don't have an account? <Link to="/register" className="ms-2">Register</Link>
           </p>
         </form>
       </div>
