@@ -24,13 +24,13 @@ const RootLayout = () => {
 
   return (
     <>
-<div className="flex justify-between items-center p-3 bg-slate-600">
-  <div className="text-2xl text-white">Library Management</div>
+<div className="flex justify-between items-center p-3 bg-teal-500">
+  <div className="text-2xl text-white font-bold">Library Management</div>
   <div className="flex justify-end items-center">
-        <div className="text-white">{user?.name}</div>
+        <div className="text-white font-mono font-bold">{user?.name}</div>
         <div>
           <button
-            className="bg-red-800 text-white px-4 py-1 rounded-lg w-fit m-2"
+            className="bg-cyan-800 text-white px-4 py-1 rounded-lg w-fit m-2"
             onClick={onLogout}
           >
             Logout
