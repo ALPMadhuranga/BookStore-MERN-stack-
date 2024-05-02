@@ -1,7 +1,7 @@
 # MERN Stack based Library Management System
 A simple Library management system within CRUD functionalities created using MERN stack and Sign up and Sign in pages created within user authentication and authorization using JWT and Redux
 
-## Technologies
+## Technologies Used
   - MongoDB
   - Express Js
   - React Js
@@ -11,10 +11,38 @@ A simple Library management system within CRUD functionalities created using MER
   - Jason Web Token (JWT)
   - Tailwind Css
 
-![1](https://github.com/ALPMadhuranga/BookStore-MERN-stack/assets/71040816/a72e00f7-45fa-460d-a179-760e21758e2e)
+### Install dependencies
+- Clone the repository: 
+```
+    git clone https://github.com/ALPMadhuranga/School-Management-App.git
+```
+- Install dependencies:
+```
+  npm install
+```
+### .envExample
+- Create a .env.example file in the root directory and add the following environment variables:
+  ```
+     - VITE_APP_BASE_URL="http://localhost:5555"
 
-![2](https://github.com/ALPMadhuranga/BookStore-MERN-stack/assets/71040816/0fde78dc-31c3-4414-beaa-51db3ef55480)
+  ```
+    
+### Getting Started
+- First, run the development server:
+  -  cd to the backend directory:
 
-![3](https://github.com/ALPMadhuranga/BookStore-MERN-stack/assets/71040816/e3b59d95-b033-42f4-ba0a-28515d0c0e30)
+```bash
+   npm run dev
+```
 
-![4](https://github.com/ALPMadhuranga/BookStore-MERN-stack/assets/71040816/db00a079-a270-4ead-b7bf-7efe2edc00b7)
+- Second, run the client:
+    -  cd to the frontend directory:
+
+```bash
+   npm run dev
+```
+
+- Access the application in your browser: http://localhost:3000
+
+## Demo
+https://library-management-henna.vercel.app/
